@@ -12,9 +12,8 @@ import Layout from 'components/Layout'
 import PreLoadImage from 'components/PreLoadImage'
 
 const Title = styled.h1`
-  font-size: 1.5em;
+  font-size: 2.5em;
   text-align: center;
-  color: palevioletred;
 `
 
 const Home = () => {

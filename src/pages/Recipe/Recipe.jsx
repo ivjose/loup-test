@@ -1,29 +1,26 @@
 import { useEffect } from 'react'
-// import styled from 'styled-components'
-import { makeStyles } from '@material-ui/core/styles'
+import styled from 'styled-components'
 import { useParams } from 'react-router-dom'
 import Container from '@material-ui/core/Container'
-import Paper from '@material-ui/core/Paper'
+import MPaper from '@material-ui/core/Paper'
 import Typography from '@material-ui/core/Typography'
 import Box from '@material-ui/core/Box'
-import Chip from '@material-ui/core/Chip'
+import MChip from '@material-ui/core/Chip'
 
 import { useSelector, useDispatch } from 'react-redux'
 
+import { theme } from 'theme'
 import Layout from 'components/Layout'
 import { fetchRecipeById } from 'actions/actionsRecipesById'
 
-const useStyles = makeStyles((theme) => ({
-  paper: {
-    padding: theme.spacing(2),
-  },
-  chip: {
-    margin: theme.spacing(0.5),
-  },
-}))
+const Paper = styled(MPaper)`
+  padding: ${theme.spacing(2)}px;
+`
+const Chip = styled(MChip)`
+  padding: ${theme.spacing(0.5)}px;
+`
 
 const Recipe = () => {
-  const classes = useStyles()
   const { recipeId } = useParams()
 
   const recipe = useSelector((state) => state.recipe)
@@ -41,7 +38,7 @@ const Recipe = () => {
         {isLoading ? (
           <h1>...Loading</h1>
         ) : (
-          <Paper className={classes.paper}>
+          <Paper>
             <img
               style={{ width: '100%' }}
               alt="{post.imageText}"
@@ -53,12 +50,7 @@ const Recipe = () => {
             </Typography>
             <Box>
               {recipe?.data?.tags.map((tag) => (
-                <Chip
-                  className={classes.chip}
-                  key={tag.id}
-                  label={tag.name}
-                  data-testid="chip-tags"
-                />
+                <Chip key={tag.id} label={tag.name} data-testid="chip-tags" />
               ))}
             </Box>
           </Paper>

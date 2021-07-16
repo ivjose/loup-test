@@ -1,48 +1,39 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
 import PropTypes from 'prop-types'
-import AppBar from '@material-ui/core/AppBar'
-import Toolbar from '@material-ui/core/Toolbar'
-import Typography from '@material-ui/core/Typography'
+import styled from 'styled-components'
+import MAppBar from '@material-ui/core/AppBar'
+import MToolbar from '@material-ui/core/Toolbar'
+import MTypography from '@material-ui/core/Typography'
 
-import { makeStyles } from '@material-ui/core/styles'
+import { theme } from 'theme'
 
-const useStyles = makeStyles((theme) => ({
-  '@global': {
-    ul: {
-      margin: 0,
-      padding: 0,
-      listStyle: 'none',
-    },
-  },
-  appBar: {
-    borderBottom: `1px solid ${theme.palette.divider}`,
-    marginBottom: theme.spacing(5),
-  },
-  toolbar: {
-    flexWrap: 'wrap',
-  },
-  toolbarTitle: {
-    flexGrow: 1,
-  },
-}))
+const AppBar = styled(MAppBar)`
+  border-bottom: 1px solid ${theme.palette.divider};
+  margin-bottom: ${theme.spacing(5)}px;
+`
 
-const Layout = ({ children }) => {
-  const classes = useStyles()
-  return (
-    <>
-      <AppBar position="static" color="default" elevation={0} className={classes.appBar}>
-        <Toolbar className={classes.toolbar}>
-          <Typography variant="h6" color="inherit" noWrap className={classes.toolbarTitle}>
-            Frontend Coding Exercise
-          </Typography>
-        </Toolbar>
-      </AppBar>
+const Toolbar = styled(MToolbar)`
+  flex-wrap: wrap;
+`
 
-      {children}
-    </>
-  )
-}
+const Typography = styled(MTypography)`
+  flex-grow: 1;
+`
+
+const Layout = ({ children }) => (
+  <>
+    <AppBar position="static" color="default" elevation={0}>
+      <Toolbar>
+        <Typography variant="h6" color="inherit" noWrap>
+          Frontend Coding Exercise
+        </Typography>
+      </Toolbar>
+    </AppBar>
+
+    {children}
+  </>
+)
 
 Layout.propTypes = {
   children: PropTypes.element.isRequired,
