@@ -8,6 +8,9 @@ export const theme = createTheme({
         html: {
           WebkitFontSmoothing: 'auto',
         },
+        a: {
+          textDecoration: 'none',
+        },
       },
     },
   },
