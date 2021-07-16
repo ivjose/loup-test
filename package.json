@@ -18,7 +18,8 @@
     "eject": "react-scripts eject",
     "lint": "eslint {src,pages}/**/*.{js,jsx}",
     "format": "prettier --write \"(src|pages)/**/*.+(js|jsx|json|css|md)\"",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "server": "json-server --watch server/db.json --port 3030"
   },
   "browserslist": {
     "production": [
@@ -44,6 +45,7 @@
     "eslint-plugin-react-hooks": "^4.2.0",
     "eslint-plugin-testing-library": "^4.9.0",
     "husky": ">=6",
+    "json-server": "^0.16.3",
     "lint-staged": ">=10",
     "prettier": "^2.3.2"
   }
