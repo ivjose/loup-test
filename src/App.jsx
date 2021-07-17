@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom'
 
 import Home from 'pages/Home'
 import Recipe from 'pages/Recipe'
@@ -8,6 +8,10 @@ function App() {
     <Router>
       <Switch>
         <Route exact path="/">
+          <Redirect to="/recipes" />
+        </Route>
+
+        <Route exact path="/recipes">
           <Home />
         </Route>
         <Route path="/recipes/:recipeId">
