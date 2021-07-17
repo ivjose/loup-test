@@ -1,4 +1,4 @@
 #!/bin/sh
 . "$(dirname "$0")/_/husky.sh"
 
-CI=true npm test --verbose --coverage
+CI=true npm test --coverage 
